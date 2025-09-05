@@ -98,8 +98,8 @@ public class TestTasks {
         WebElement SearchBox = driver.findElement(By.id("searchbox_input"));
         SearchBox.sendKeys("Cucumber IO", Keys.ENTER);
         By secondResultLocator = By.xpath("(//a[@data-testid='result-title-a'])[2]");
-        String secondResultLink = driver.findElement(secondResultLocator).getAttribute("href");
-        Assert.assertTrue(secondResultLink.contains("linkedin.com"), "Link does NOT contain linkedin.com");
+        String secondResultLink = driver.findElement(secondResultLocator).getDomAttribute("href");
+        Assert.assertTrue(secondResultLink!=null && secondResultLink.contains("linkedin.com"), "Link does NOT contain linkedin.com");
     }
 
     @BeforeMethod
@@ -113,7 +113,7 @@ public class TestTasks {
 
     @AfterMethod
     public void tearDown() {
-        //driver.quit(); // Code to clean up after tests
+        driver.quit(); // Code to clean up after tests
     }
 
 
