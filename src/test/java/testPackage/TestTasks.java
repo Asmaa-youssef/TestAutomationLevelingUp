@@ -99,6 +99,8 @@ public class TestTasks {
         SearchBox.sendKeys("Cucumber IO", Keys.ENTER);
         By secondResultLocator = By.xpath("(//a[@data-testid='result-title-a'])[2]");
         String secondResultLink = driver.findElement(secondResultLocator).getDomAttribute("href");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       // wait.until(ExpectedConditions.urlToBe(secondResultLink));
         Assert.assertTrue(secondResultLink!=null && secondResultLink.contains("linkedin.com"), "Link does NOT contain linkedin.com");
     }
 
